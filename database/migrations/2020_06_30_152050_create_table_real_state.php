@@ -15,7 +15,7 @@ class CreateTableRealState extends Migration
     {
         Schema::create('real_state', function (Blueprint $table) {
             $table->id();
-
+            $table->unsignedBigInteger('user_id');
             $table->srting('title');
             $table->srting('description');
             $table->text('content');
@@ -27,6 +27,8 @@ class CreateTableRealState extends Migration
             $table->srting('slug');
 
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
