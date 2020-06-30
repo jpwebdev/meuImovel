@@ -16,15 +16,15 @@ class CreateTableRealState extends Migration
         Schema::create('real_state', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->srting('title');
-            $table->srting('description');
+            $table->string('title');
+            $table->string('description');
             $table->text('content');
             $table->float('price', 10, 2);
             $table->integer('bathrooms');
             $table->integer('bedrooms');
             $table->integer('property_area');
             $table->integer('total_property_area');
-            $table->srting('slug');
+            $table->string('slug');
 
             $table->timestamps();
 
