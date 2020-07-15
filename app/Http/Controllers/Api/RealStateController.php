@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RealStateRequest;
 use App\RealState;
-use Illuminate\Http\Request;
 
 class RealStateController extends Controller
 {
@@ -15,7 +15,6 @@ class RealStateController extends Controller
 
     public function __construct(RealState $realState)
     {
-
         $this->realState = $realState;
     }
 
@@ -29,7 +28,6 @@ class RealStateController extends Controller
     public function show($id)
     {
         try{
-
             $realState = $this->realState->findOrFail($id);
 
             return response()->json([
@@ -41,12 +39,11 @@ class RealStateController extends Controller
         }
     }
 
-    public function store(request $request)
+    public function store(RealStateRequest $request)
     {
         $data = $request->all();
 
         try{
-
             $realState = $this->realState->create($data); //Mass Asignment
 
             return response()->json([
@@ -61,12 +58,11 @@ class RealStateController extends Controller
 
     }
 
-    public function update($id, Request $request)
+    public function update($id, RealStateRequest $request)
     {
         $data = $request->all();
 
         try{
-
             $realState = $this->realState->findOrFail($id);
             $realState->update($data); //Mass Asignment
 
@@ -85,7 +81,6 @@ class RealStateController extends Controller
     {
 
         try{
-
             $realState = $this->realState->findOrFail($id);
             $realState->delete(); //Mass Asignment
 
