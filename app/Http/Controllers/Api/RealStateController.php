@@ -59,7 +59,6 @@ class RealStateController extends Controller
             $message = new ApiMessages($e->getMessage());
             return response()->json($message->getMessage(), 401);
         }
-
     }
 
     public function update($id, RealStateRequest $request)
@@ -84,7 +83,6 @@ class RealStateController extends Controller
 
     public function destroy($id)
     {
-
         try{
             $realState = $this->realState->findOrFail($id);
             $realState->delete(); //Mass Asignment
